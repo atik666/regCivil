@@ -319,8 +319,13 @@ def main():
     trainer.save_model('regression_model.pth')
     
     # Example prediction (replace with an actual image path)
-    prediction = trainer.predict('/mnt/d/OneDrive - Rowan University/RA/Fall 24/Civil/dataset/Test/')
-    print("Prediction:", prediction)
+    predictions = trainer.predict('/mnt/d/OneDrive - Rowan University/RA/Fall 24/Civil/dataset/Test/')
+    print("Prediction:", predictions)
+
+    # Save predictions to JSON
+    with open('predictions.json', 'w') as f:
+        json.dump(predictions, f, indent=2)
+    print(f"Predictions saved to {'predictions.json'}")
 
 if __name__ == '__main__':
     main()
