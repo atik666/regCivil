@@ -254,7 +254,7 @@ class RegressionTrainer:
 
                         # Use a relative path for output
                         relative_path = os.path.relpath(image_path, image_dir)
-                        predictions[relative_path] = prediction.cpu().numpy()[0].tolist()
+                        predictions[relative_path] = [round(float(p), 3) for p in prediction.cpu().numpy()[0]]
                     except Exception as e:
                         print(f"Error processing {image_path}: {e}")
         
